@@ -1,8 +1,8 @@
 # ProGit Version 2 Notes
 
-Original book can be found [here][1].
+Book can be found [here][1].
 
-##  Chapter 1:  History of Git
+## History of Git
 ### About Version Control
 
 ___Version Control___: A system that record changes to a file or set of files over time for future recall.
@@ -65,46 +65,51 @@ __Working Directory__: This is the single version of the project. These files ar
 
 __Staging Area__: This is a file that lists all the changes made which will go into your next commit.
 
-#### General Git Workflow 
+##### General Git Workflow 
 
 Modify Files in __Working Directory__ --> Stage Files/ Add Files to __Staging Area__ --> You Commit, which will store all those changes permanently in the __Git Directory__.
 
-## Chapter 2: Git Basics
+## Git Basics
 ### Getting a Git Repository
-There are two main ways to get a Git repository. You can either take an existing project and import to Git, or you can clone an existing repository from a different server.
+There are 2 ways to get a Git Repository. You can either take an existing project and import into Git or you can clone an available repository from another server.
 
 #### Initializing a Repository in an Existing Directory
-If you want to start tracking an existing project in Git, go to your projects directory on the command line, the type:
+To star tracking an existing project with git, go into the projects directory in your terminal and type
+
 ```
 $ git init
 ```
-This creates a new subdirectory, the ``.git`` directory, that contains the skeleton for your Git repository. There is nothing tracked in Git at this point. 
 
-To start version-controlling, you begin by letting Git know what files you want to track, and do an initial commit. This is done with a few commands:
+This command creates the ```.git``` repository that contains all the files needed by your repository. Nothing is being tracked by Git yet. To start verson controlling your files, start an initial commit by doing a few commands on your terminal. 
+
 ```
-$ git add [files you want to track. A simple period for the whole project.]
+$ git add [whatever files you want to start tracking]
 $ git add LICENSE
-$ git commit -m "initial commit"
-``` 
+$ git commit -m 'initial project version' 
+```
 
 #### Cloning an Existing Repository
-If you want to get a copy of an existing Git repository, you can run the following command: 
+In order to get a copy of an existing Git repository, you use the folling commands:
+
 ```
 $ git clone [url of the repository's location]
 ```
-This will create a project directory named after the git repository. If you would like to change the name of the directory created, you can run:
-```
-$ git clone [url of the repository's location] [desired directory name]
-```
-Git can understand several transfer protocols. Some examples include:
-* ``https://``
-* ``git://``
-* ``user@server:path/to/repo.git``
 
-The first two listed use the https protocol, while the last one contacts the server via th SSH protocol.
+This command creates a directory named after the ending of the url. For example, when running:
+ ``` 
+ git clone https://github.com/libgit2/libgit2 
+ ``` 
+ the directory will be named `` libgit2 ``. To change the name of the directory created by Git, run the ```clone``` command with the name of the directory after it, like so:
+ 
+ ```
+ $ git clone [url of directory's location][desired drectory name]
+ ```
+ Git can use several transfer protocols. Some examples include:
 
+ * ``https://``
+ * ``git://``
+ * ``user@server:path/to/repo.git``
 
-
-
+ The first two use https protocol structure, while the last option listed uses the SSH protocol to grab the repo. 
 
 [1]:https://github.com/progit/progit2
