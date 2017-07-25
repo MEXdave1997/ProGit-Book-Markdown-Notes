@@ -1,8 +1,8 @@
 # ProGit Version 2 Notes
 
-Book can be found [here][1].
+Original book can be found [here][1].
 
-## History of Git
+##  Chapter 1:  History of Git
 ### About Version Control
 
 ___Version Control___: A system that record changes to a file or set of files over time for future recall.
