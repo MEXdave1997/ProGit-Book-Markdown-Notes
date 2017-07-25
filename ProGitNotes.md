@@ -29,20 +29,20 @@ __Goals of this System__:
 * Fully distributed
 * Ability to handle large projects efficiently.
 
-## Git Basics
-### Snapshots, Not Differences
+### Git Basics
+#### Snapshots, Not Differences
 Git thinks about its data in terms of database __snapshots__ instead of as differences. 
 
-### Nearly Every Operation is Local
+#### Nearly Every Operation is Local
 Pretty much every operation in Git does not require the use of a network. This not only makes Git opreations, like looking up project history or changes, instantaneous (due to no network latency overhead), but it also allows you to do work from pretty much anywhere.
 
-### Git has Integrity
+#### Git has Integrity
 Everything in Git is check-summed using an __SHA-1 hash__, a 40-caharcter string made up of hexadecmal numbers (ranges 0-9 and a-f). This system lets Git be aware of any changes made to the repository. This means that you also can't lose any data via file transit or corruption without Git knowing it happened.
 
-### Git Generally Only __Adds__ Data
+#### Git Generally Only __Adds__ Data
 When you do something in Git, it generally only adds data in the database. There is very little that you can do that is not undoable or that can erase any data. There is a chance that you can lose/corrupt data before changes are commited, but once commited into Git, it is difficult to lose that change. 
 
-### The Three States of Git
+#### The Three States of Git
 There are three main states within Git. Those are:
 * Commited 
 * Modified
@@ -69,6 +69,42 @@ __Staging Area__: This is a file that lists all the changes made which will go i
 
 Modify Files in __Working Directory__ --> Stage Files/ Add Files to __Staging Area__ --> You Commit, which will store all those changes permanently in the __Git Directory__.
 
-  
+## Chapter 2: Git Basics
+### Getting a Git Repository
+There are two main ways to get a Git repository. You can either take an existing project and import to Git, or you can clone an existing repository from a different server.
+
+#### Initializing a Repository in an Existing Directory
+If you want to start tracking an existing project in Git, go to your projects directory on the command line, the type:
+```
+$ git init
+```
+This creates a new subdirectory, the ``.git`` directory, that contains the skeleton for your Git repository. There is nothing tracked in Git at this point. 
+
+To start version-controlling, you begin by letting Git know what files you want to track, and do an initial commit. This is done with a few commands:
+```
+$ git add [files you want to track. A simple period for the whole project.]
+$ git add LICENSE
+$ git commit -m "initial commit"
+``` 
+
+#### Cloning an Existing Repository
+If you want to get a copy of an existing Git repository, you can run the following command: 
+```
+$ git clone [url of the repository's location]
+```
+This will create a project directory named after the git repository. If you would like to change the name of the directory created, you can run:
+```
+$ git clone [url of the repository's location] [desired directory name]
+```
+Git can understand several transfer protocols. Some examples include:
+* ``https://``
+* ``git://``
+* ``user@server:path/to/repo.git``
+
+The first two listed use the https protocol, while the last one contacts the server via th SSH protocol.
+
+
+
+
 
 [1]:https://github.com/progit/progit2
