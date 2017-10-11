@@ -2,20 +2,20 @@
 
 Book can be found [here][1].
 
-## History of Git
+## Chapter 1: History of Git
 ### About Version Control
 
 ___Version Control___: A system that record changes to a file or set of files over time for future recall.
 
 #### Different Types of Version Control
-___Local Version Control___: When you copy a file to a different directory. Most error prone due to probability of accidentally deleting or overwriting. 
+___Local Version Control___: When you copy a file to a different directory. Most error prone due to probability of accidentally deleting or overwriting.
 
-___Cerntralized Version Control___: The most common method of collaboration with version control. A sinlge sever contains all versioned files, and clients check out files from that central location. 
+___Cerntralized Version Control___: The most common method of collaboration with version control. A sinlge sever contains all versioned files, and clients check out files from that central location.
 
 ___Distributed Version Control Systems___: Similar to the Centralized system, but the clients all have a mirror of the changes database. If the central server dies or loses data, a client can copy the data back to the server to restore it.
 
 ### How Git Came to Be.
-Git started as a solution to controversy between the people behind the Linux Kernel, and a proprietary CVS called BitKeeper. 
+Git started as a solution to controversy between the people behind the Linux Kernel, and a proprietary CVS called BitKeeper.
 
 __Creator__: _Linus Trovalds_, Creator of Linux Kernel
 
@@ -31,7 +31,7 @@ __Goals of this System__:
 
 ### Git Basics
 #### Snapshots, Not Differences
-Git thinks about its data in terms of database __snapshots__ instead of as differences. 
+Git thinks about its data in terms of database __snapshots__ instead of as differences.
 
 #### Nearly Every Operation is Local
 Pretty much every operation in Git does not require the use of a network. This not only makes Git opreations, like looking up project history or changes, instantaneous (due to no network latency overhead), but it also allows you to do work from pretty much anywhere.
@@ -40,11 +40,11 @@ Pretty much every operation in Git does not require the use of a network. This n
 Everything in Git is check-summed using an __SHA-1 hash__, a 40-caharcter string made up of hexadecmal numbers (ranges 0-9 and a-f). This system lets Git be aware of any changes made to the repository. This means that you also can't lose any data via file transit or corruption without Git knowing it happened.
 
 #### Git Generally Only __Adds__ Data
-When you do something in Git, it generally only adds data in the database. There is very little that you can do that is not undoable or that can erase any data. There is a chance that you can lose/corrupt data before changes are commited, but once commited into Git, it is difficult to lose that change. 
+When you do something in Git, it generally only adds data in the database. There is very little that you can do that is not undoable or that can erase any data. There is a chance that you can lose/corrupt data before changes are commited, but once commited into Git, it is difficult to lose that change.
 
 #### The Three States of Git
 There are three main states within Git. Those are:
-* Commited 
+* Commited
 * Modified
 * Staged
 
@@ -52,9 +52,9 @@ __Commited__: In this state, the data is safely stored in your local/remote data
 
 __Modified__: In this state, Git tells you that a change has been made in a file, but you haven't saved that change within your database.
 
-__Staged__: In this state, you have marked modified files that are ready to be placed into your next commit. 
+__Staged__: In this state, you have marked modified files that are ready to be placed into your next commit.
 
-There are also three Directory Structures in Git. Those are: 
+There are also three Directory Structures in Git. Those are:
 * Git Directory
 * Working Directory
 * Staging Area
@@ -65,51 +65,9 @@ __Working Directory__: This is the single version of the project. These files ar
 
 __Staging Area__: This is a file that lists all the changes made which will go into your next commit.
 
-##### General Git Workflow 
+##### General Git Workflow
 
 Modify Files in __Working Directory__ --> Stage Files/ Add Files to __Staging Area__ --> You Commit, which will store all those changes permanently in the __Git Directory__.
 
-## Git Basics
-### Getting a Git Repository
-There are 2 ways to get a Git Repository. You can either take an existing project and import into Git or you can clone an available repository from another server.
-
-#### Initializing a Repository in an Existing Directory
-To star tracking an existing project with git, go into the projects directory in your terminal and type
-
-```
-$ git init
-```
-
-This command creates the ```.git``` repository that contains all the files needed by your repository. Nothing is being tracked by Git yet. To start verson controlling your files, start an initial commit by doing a few commands on your terminal. 
-
-```
-$ git add [whatever files you want to start tracking]
-$ git add LICENSE
-$ git commit -m 'initial project version' 
-```
-
-#### Cloning an Existing Repository
-In order to get a copy of an existing Git repository, you use the folling commands:
-
-```
-$ git clone [url of the repository's location]
-```
-
-This command creates a directory named after the ending of the url. For example, when running:
- ``` 
- git clone https://github.com/libgit2/libgit2 
- ``` 
- the directory will be named `` libgit2 ``. To change the name of the directory created by Git, run the ```clone``` command with the name of the directory after it, like so:
- 
- ```
- $ git clone [url of directory's location][desired drectory name]
- ```
- Git can use several transfer protocols. Some examples include:
-
- * ``https://``
- * ``git://``
- * ``user@server:path/to/repo.git``
-
- The first two use https protocol structure, while the last option listed uses the SSH protocol to grab the repo. 
 
 [1]:https://github.com/progit/progit2
